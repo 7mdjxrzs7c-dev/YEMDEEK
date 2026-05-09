@@ -1,3 +1,5 @@
+YEMDEEK — Full Source Code
+ 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,513 +9,513 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
+ 
 :root {
-  --ink: #0C0C0E;
-  --ink2: #141418;
-  --ink3: #1C1C22;
-  --ink4: #26262E;
-  --border: rgba(212,185,120,0.18);
-  --border2: rgba(255,255,255,0.07);
-  --gold: #D4B978;
-  --gold2: #E8D4A0;
-  --gold3: #B8993A;
-  --cream: #F5F0E8;
-  --cream2: #EDE6D6;
-  --text: #F0ECE4;
-  --muted: #7A7468;
-  --muted2: #9A9080;
-  --green: #4A9E74;
-  --red: #C85858;
-  --blue: #4A78C8;
-  --serif: 'Cormorant Garamond', Georgia, serif;
-  --sans: 'DM Sans', sans-serif;
+ --ink: #0C0C0E;
+ --ink2: #141418;
+ --ink3: #1C1C22;
+ --ink4: #26262E;
+ --border: rgba(212,185,120,0.18);
+ --border2: rgba(255,255,255,0.07);
+ --gold: #D4B978;
+ --gold2: #E8D4A0;
+ --gold3: #B8993A;
+ --cream: #F5F0E8;
+ --cream2: #EDE6D6;
+ --text: #F0ECE4;
+ --muted: #7A7468;
+ --muted2: #9A9080;
+ --green: #4A9E74;
+ --red: #C85858;
+ --blue: #4A78C8;
+ --serif: 'Cormorant Garamond', Georgia, serif;
+ --sans: 'DM Sans', sans-serif;
 }
-
+ 
 html { scroll-behavior: smooth; }
-
+ 
 body {
-  font-family: var(--sans);
-  background: var(--ink);
-  color: var(--text);
-  min-height: 100vh;
-  overflow-x: hidden;
+ font-family: var(--sans);
+ background: var(--ink);
+ color: var(--text);
+ min-height: 100vh;
+ overflow-x: hidden;
 }
-
+ 
 /* ── NOISE TEXTURE OVERLAY ── */
 body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
-  pointer-events: none;
-  z-index: 999;
-  opacity: 0.4;
+ content: '';
+ position: fixed;
+ inset: 0;
+ background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+ pointer-events: none;
+ z-index: 999;
+ opacity: 0.4;
 }
-
+ 
 /* ═══════════════════════════════════
-   NAV
+  NAV
 ═══════════════════════════════════ */
 .nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 48px;
-  height: 68px;
-  background: rgba(12,12,14,0.92);
-  backdrop-filter: blur(24px);
-  border-bottom: 1px solid var(--border);
-  position: sticky;
-  top: 0;
-  z-index: 100;
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ padding: 0 48px;
+ height: 68px;
+ background: rgba(12,12,14,0.92);
+ backdrop-filter: blur(24px);
+ border-bottom: 1px solid var(--border);
+ position: sticky;
+ top: 0;
+ z-index: 100;
 }
-
+ 
 .logo {
-  font-family: var(--serif);
-  font-size: 26px;
-  font-weight: 600;
-  letter-spacing: 3px;
-  color: var(--gold);
-  cursor: pointer;
+ font-family: var(--serif);
+ font-size: 26px;
+ font-weight: 600;
+ letter-spacing: 3px;
+ color: var(--gold);
+ cursor: pointer;
 }
 .logo em { font-style: italic; color: var(--gold2); font-weight: 300; }
-
+ 
 .nav-center {
-  display: flex;
-  gap: 4px;
-  background: var(--ink3);
-  border: 1px solid var(--border);
-  border-radius: 40px;
-  padding: 5px;
+ display: flex;
+ gap: 4px;
+ background: var(--ink3);
+ border: 1px solid var(--border);
+ border-radius: 40px;
+ padding: 5px;
 }
 .nav-tab {
-  padding: 7px 22px;
-  border-radius: 40px;
-  border: none;
-  cursor: pointer;
-  font-family: var(--sans);
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 0.5px;
-  transition: all 0.3s;
-  background: transparent;
-  color: var(--muted2);
+ padding: 7px 22px;
+ border-radius: 40px;
+ border: none;
+ cursor: pointer;
+ font-family: var(--sans);
+ font-size: 13px;
+ font-weight: 500;
+ letter-spacing: 0.5px;
+ transition: all 0.3s;
+ background: transparent;
+ color: var(--muted2);
 }
 .nav-tab.active {
-  background: var(--gold);
-  color: var(--ink);
-  font-weight: 600;
+ background: var(--gold);
+ color: var(--ink);
+ font-weight: 600;
 }
-
+ 
 .nav-right { display: flex; align-items: center; gap: 12px; }
 .nav-user {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  background: var(--ink3);
-  border: 1px solid var(--border);
-  border-radius: 40px;
-  padding: 6px 16px 6px 8px;
-  cursor: pointer;
-  transition: all 0.2s;
+ display: flex;
+ align-items: center;
+ gap: 10px;
+ background: var(--ink3);
+ border: 1px solid var(--border);
+ border-radius: 40px;
+ padding: 6px 16px 6px 8px;
+ cursor: pointer;
+ transition: all 0.2s;
 }
 .nav-user:hover { border-color: var(--gold); }
 .avatar {
-  width: 32px; height: 32px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--gold3), var(--gold));
-  display: flex; align-items: center; justify-content: center;
-  font-size: 13px; font-weight: 600; color: var(--ink);
+ width: 32px; height: 32px;
+ border-radius: 50%;
+ background: linear-gradient(135deg, var(--gold3), var(--gold));
+ display: flex; align-items: center; justify-content: center;
+ font-size: 13px; font-weight: 600; color: var(--ink);
 }
 .nav-name { font-size: 13px; font-weight: 500; }
-
+ 
 /* ═══════════════════════════════════
-   VIEWS
+  VIEWS
 ═══════════════════════════════════ */
 .view { display: none; }
 .view.active { display: block; animation: fadeUp 0.5s ease; }
 @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
-
+ 
 /* ═══════════════════════════════════
-   AUTH MODAL
+  AUTH MODAL
 ═══════════════════════════════════ */
 .auth-overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.85);
-  backdrop-filter: blur(12px);
-  z-index: 500;
-  align-items: center;
-  justify-content: center;
+ display: none;
+ position: fixed;
+ inset: 0;
+ background: rgba(0,0,0,0.85);
+ backdrop-filter: blur(12px);
+ z-index: 500;
+ align-items: center;
+ justify-content: center;
 }
 .auth-overlay.open { display: flex; animation: fadeUp 0.3s ease; }
-
+ 
 .auth-box {
-  background: var(--ink2);
-  border: 1px solid var(--border);
-  border-radius: 24px;
-  width: 420px;
-  overflow: hidden;
-  box-shadow: 0 40px 80px rgba(0,0,0,0.6);
+ background: var(--ink2);
+ border: 1px solid var(--border);
+ border-radius: 24px;
+ width: 420px;
+ overflow: hidden;
+ box-shadow: 0 40px 80px rgba(0,0,0,0.6);
 }
 .auth-header {
-  padding: 32px 32px 0;
-  text-align: center;
+ padding: 32px 32px 0;
+ text-align: center;
 }
 .auth-logo {
-  font-family: var(--serif);
-  font-size: 32px;
-  font-weight: 600;
-  color: var(--gold);
-  letter-spacing: 3px;
-  margin-bottom: 8px;
+ font-family: var(--serif);
+ font-size: 32px;
+ font-weight: 600;
+ color: var(--gold);
+ letter-spacing: 3px;
+ margin-bottom: 8px;
 }
 .auth-subtitle { color: var(--muted2); font-size: 14px; margin-bottom: 28px; }
-
+ 
 .auth-tabs {
-  display: flex;
-  border-bottom: 1px solid var(--border);
+ display: flex;
+ border-bottom: 1px solid var(--border);
 }
 .auth-tab {
-  flex: 1;
-  padding: 14px;
-  text-align: center;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--muted);
-  border-bottom: 2px solid transparent;
-  transition: all 0.2s;
-  background: none;
-  border: none;
-  border-bottom: 2px solid transparent;
-  color: var(--muted2);
-  font-family: var(--sans);
+ flex: 1;
+ padding: 14px;
+ text-align: center;
+ cursor: pointer;
+ font-size: 14px;
+ font-weight: 500;
+ color: var(--muted);
+ border-bottom: 2px solid transparent;
+ transition: all 0.2s;
+ background: none;
+ border: none;
+ border-bottom: 2px solid transparent;
+ color: var(--muted2);
+ font-family: var(--sans);
 }
 .auth-tab.active {
-  color: var(--gold);
-  border-bottom-color: var(--gold);
+ color: var(--gold);
+ border-bottom-color: var(--gold);
 }
-
+ 
 .auth-body { padding: 28px 32px 32px; }
-
+ 
 .auth-role-select {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  margin-bottom: 20px;
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+ gap: 10px;
+ margin-bottom: 20px;
 }
 .role-btn {
-  background: var(--ink3);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 14px;
-  text-align: center;
-  cursor: pointer;
-  transition: all 0.2s;
+ background: var(--ink3);
+ border: 1px solid var(--border);
+ border-radius: 12px;
+ padding: 14px;
+ text-align: center;
+ cursor: pointer;
+ transition: all 0.2s;
 }
 .role-btn:hover, .role-btn.active {
-  border-color: var(--gold);
-  background: rgba(212,185,120,0.06);
+ border-color: var(--gold);
+ background: rgba(212,185,120,0.06);
 }
 .role-icon { font-size: 24px; margin-bottom: 6px; }
 .role-label { font-size: 13px; font-weight: 500; }
 .role-desc { font-size: 11px; color: var(--muted); margin-top: 2px; }
-
+ 
 .form-group { margin-bottom: 14px; }
 .form-group label { display: block; font-size: 12px; color: var(--muted2); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
 .form-group input {
-  width: 100%;
-  background: var(--ink3);
-  border: 1px solid var(--border2);
-  border-radius: 10px;
-  padding: 12px 14px;
-  color: var(--text);
-  font-family: var(--sans);
-  font-size: 14px;
-  outline: none;
-  transition: border-color 0.2s;
+ width: 100%;
+ background: var(--ink3);
+ border: 1px solid var(--border2);
+ border-radius: 10px;
+ padding: 12px 14px;
+ color: var(--text);
+ font-family: var(--sans);
+ font-size: 14px;
+ outline: none;
+ transition: border-color 0.2s;
 }
 .form-group input:focus { border-color: var(--gold); }
 .form-group input::placeholder { color: var(--muted); }
-
+ 
 .auth-btn {
-  width: 100%;
-  background: var(--gold);
-  color: var(--ink);
-  border: none;
-  border-radius: 12px;
-  padding: 14px;
-  font-family: var(--sans);
-  font-weight: 600;
-  font-size: 15px;
-  cursor: pointer;
-  margin-top: 6px;
-  transition: all 0.2s;
-  letter-spacing: 0.5px;
+ width: 100%;
+ background: var(--gold);
+ color: var(--ink);
+ border: none;
+ border-radius: 12px;
+ padding: 14px;
+ font-family: var(--sans);
+ font-weight: 600;
+ font-size: 15px;
+ cursor: pointer;
+ margin-top: 6px;
+ transition: all 0.2s;
+ letter-spacing: 0.5px;
 }
 .auth-btn:hover { background: var(--gold2); transform: translateY(-1px); }
-
+ 
 .auth-divider { text-align: center; margin: 16px 0; color: var(--muted); font-size: 12px; position: relative; }
 .auth-divider::before, .auth-divider::after { content: ''; position: absolute; top: 50%; width: 38%; height: 1px; background: var(--border); }
 .auth-divider::before { left: 0; }
 .auth-divider::after { right: 0; }
-
+ 
 .trust-badges {
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-  margin-top: 20px;
-  padding-top: 20px;
-  border-top: 1px solid var(--border);
+ display: flex;
+ justify-content: center;
+ gap: 16px;
+ margin-top: 20px;
+ padding-top: 20px;
+ border-top: 1px solid var(--border);
 }
 .trust-item { text-align: center; }
 .trust-icon { font-size: 18px; margin-bottom: 4px; }
 .trust-text { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; }
-
+ 
 /* ═══════════════════════════════════
-   MARKETPLACE (BUYER VIEW)
+  MARKETPLACE (BUYER VIEW)
 ═══════════════════════════════════ */
 .hero {
-  position: relative;
-  padding: 80px 48px 64px;
-  overflow: hidden;
-  border-bottom: 1px solid var(--border);
+ position: relative;
+ padding: 80px 48px 64px;
+ overflow: hidden;
+ border-bottom: 1px solid var(--border);
 }
 .hero-bg {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse at 20% 50%, rgba(212,185,120,0.06) 0%, transparent 60%),
-    radial-gradient(ellipse at 80% 20%, rgba(212,185,120,0.04) 0%, transparent 50%),
-    linear-gradient(180deg, var(--ink2) 0%, var(--ink) 100%);
+ position: absolute;
+ inset: 0;
+ background:
+   radial-gradient(ellipse at 20% 50%, rgba(212,185,120,0.06) 0%, transparent 60%),
+   radial-gradient(ellipse at 80% 20%, rgba(212,185,120,0.04) 0%, transparent 50%),
+   linear-gradient(180deg, var(--ink2) 0%, var(--ink) 100%);
 }
 .hero-lines {
-  position: absolute;
-  inset: 0;
-  background-image: repeating-linear-gradient(
-    90deg, transparent, transparent 79px,
-    rgba(212,185,120,0.04) 79px, rgba(212,185,120,0.04) 80px
-  );
+ position: absolute;
+ inset: 0;
+ background-image: repeating-linear-gradient(
+   90deg, transparent, transparent 79px,
+   rgba(212,185,120,0.04) 79px, rgba(212,185,120,0.04) 80px
+ );
 }
-
+ 
 .hero-content { position: relative; max-width: 680px; }
 .hero-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(212,185,120,0.08);
-  border: 1px solid rgba(212,185,120,0.25);
-  border-radius: 40px;
-  padding: 6px 16px;
-  font-size: 12px;
-  color: var(--gold);
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-weight: 500;
-  margin-bottom: 24px;
+ display: inline-flex;
+ align-items: center;
+ gap: 8px;
+ background: rgba(212,185,120,0.08);
+ border: 1px solid rgba(212,185,120,0.25);
+ border-radius: 40px;
+ padding: 6px 16px;
+ font-size: 12px;
+ color: var(--gold);
+ text-transform: uppercase;
+ letter-spacing: 2px;
+ font-weight: 500;
+ margin-bottom: 24px;
 }
 .hero-tag::before { content: '●'; font-size: 8px; animation: pulse 2s infinite; }
 @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
-
+ 
 .hero h1 {
-  font-family: var(--serif);
-  font-size: 62px;
-  font-weight: 500;
-  line-height: 1.05;
-  margin-bottom: 20px;
-  letter-spacing: -0.5px;
+ font-family: var(--serif);
+ font-size: 62px;
+ font-weight: 500;
+ line-height: 1.05;
+ margin-bottom: 20px;
+ letter-spacing: -0.5px;
 }
 .hero h1 em { font-style: italic; color: var(--gold); font-weight: 300; }
-
+ 
 .hero p { color: var(--muted2); font-size: 16px; line-height: 1.6; max-width: 520px; margin-bottom: 36px; }
-
+ 
 .hero-stats {
-  display: flex;
-  gap: 40px;
-  margin-bottom: 40px;
+ display: flex;
+ gap: 40px;
+ margin-bottom: 40px;
 }
 .hero-stat-value {
-  font-family: var(--serif);
-  font-size: 28px;
-  font-weight: 600;
-  color: var(--gold);
+ font-family: var(--serif);
+ font-size: 28px;
+ font-weight: 600;
+ color: var(--gold);
 }
 .hero-stat-label { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-top: 2px; }
-
+ 
 /* SEARCH */
 .search-container {
-  background: var(--ink2);
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  padding: 6px 6px 6px 24px;
-  display: flex;
-  align-items: center;
-  gap: 0;
-  max-width: 760px;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+ background: var(--ink2);
+ border: 1px solid var(--border);
+ border-radius: 20px;
+ padding: 6px 6px 6px 24px;
+ display: flex;
+ align-items: center;
+ gap: 0;
+ max-width: 760px;
+ box-shadow: 0 20px 60px rgba(0,0,0,0.4);
 }
 .search-field {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  padding: 10px 20px 10px 0;
-  border-right: 1px solid var(--border);
+ flex: 1;
+ display: flex;
+ flex-direction: column;
+ gap: 2px;
+ padding: 10px 20px 10px 0;
+ border-right: 1px solid var(--border);
 }
 .search-field:last-of-type { border: none; }
 .sf-label { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 1.5px; }
 .sf-input {
-  background: none;
-  border: none;
-  outline: none;
-  color: var(--text);
-  font-family: var(--sans);
-  font-size: 14px;
-  font-weight: 500;
-  width: 100%;
+ background: none;
+ border: none;
+ outline: none;
+ color: var(--text);
+ font-family: var(--sans);
+ font-size: 14px;
+ font-weight: 500;
+ width: 100%;
 }
 .sf-input::placeholder { color: var(--muted); }
 .search-btn {
-  background: var(--gold);
-  color: var(--ink);
-  border: none;
-  border-radius: 14px;
-  padding: 16px 32px;
-  font-family: var(--sans);
-  font-weight: 600;
-  font-size: 14px;
-  cursor: pointer;
-  white-space: nowrap;
-  transition: all 0.2s;
-  letter-spacing: 0.5px;
-  flex-shrink: 0;
+ background: var(--gold);
+ color: var(--ink);
+ border: none;
+ border-radius: 14px;
+ padding: 16px 32px;
+ font-family: var(--sans);
+ font-weight: 600;
+ font-size: 14px;
+ cursor: pointer;
+ white-space: nowrap;
+ transition: all 0.2s;
+ letter-spacing: 0.5px;
+ flex-shrink: 0;
 }
 .search-btn:hover { background: var(--gold2); }
-
+ 
 /* LISTINGS */
 .listings-section { padding: 48px; }
 .sec-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  margin-bottom: 32px;
+ display: flex;
+ justify-content: space-between;
+ align-items: baseline;
+ margin-bottom: 32px;
 }
 .sec-title { font-family: var(--serif); font-size: 30px; font-weight: 500; }
 .sec-count { color: var(--muted2); font-size: 13px; }
-
+ 
 .filter-bar {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 28px;
-  flex-wrap: wrap;
+ display: flex;
+ gap: 8px;
+ margin-bottom: 28px;
+ flex-wrap: wrap;
 }
 .filter-chip {
-  background: var(--ink3);
-  border: 1px solid var(--border);
-  border-radius: 40px;
-  padding: 7px 18px;
-  font-size: 13px;
-  cursor: pointer;
-  transition: all 0.2s;
-  color: var(--muted2);
+ background: var(--ink3);
+ border: 1px solid var(--border);
+ border-radius: 40px;
+ padding: 7px 18px;
+ font-size: 13px;
+ cursor: pointer;
+ transition: all 0.2s;
+ color: var(--muted2);
 }
 .filter-chip:hover, .filter-chip.active {
-  border-color: var(--gold);
-  color: var(--gold);
-  background: rgba(212,185,120,0.05);
+ border-color: var(--gold);
+ color: var(--gold);
+ background: rgba(212,185,120,0.05);
 }
-
+ 
 .listings-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-  gap: 24px;
+ display: grid;
+ grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+ gap: 24px;
 }
-
+ 
 .listing-card {
-  background: var(--ink2);
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  overflow: hidden;
-  cursor: pointer;
-  transition: all 0.35s cubic-bezier(0.16,1,0.3,1);
-  position: relative;
+ background: var(--ink2);
+ border: 1px solid var(--border);
+ border-radius: 20px;
+ overflow: hidden;
+ cursor: pointer;
+ transition: all 0.35s cubic-bezier(0.16,1,0.3,1);
+ position: relative;
 }
 .listing-card:hover {
-  border-color: rgba(212,185,120,0.4);
-  transform: translateY(-6px);
-  box-shadow: 0 24px 48px rgba(0,0,0,0.4), 0 0 0 1px rgba(212,185,120,0.1);
+ border-color: rgba(212,185,120,0.4);
+ transform: translateY(-6px);
+ box-shadow: 0 24px 48px rgba(0,0,0,0.4), 0 0 0 1px rgba(212,185,120,0.1);
 }
-
+ 
 .card-img {
-  height: 200px;
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 80px;
+ height: 200px;
+ position: relative;
+ overflow: hidden;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ font-size: 80px;
 }
 .card-img.h1 { background: linear-gradient(160deg, #0a1628 0%, #1a2d4a 50%, #0d1f38 100%); }
 .card-img.h2 { background: linear-gradient(160deg, #1a0f05 0%, #2d1e0a 50%, #1a1205 100%); }
 .card-img.h3 { background: linear-gradient(160deg, #050f1a 0%, #0a1f2d 50%, #05121a 100%); }
 .card-img.h4 { background: linear-gradient(160deg, #12050a 0%, #240f18 50%, #120510 100%); }
 .card-img.h5 { background: linear-gradient(160deg, #050f0a 0%, #0f2416 50%, #05120a 100%); }
-
+ 
 .card-img::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, transparent 50%, rgba(12,12,14,0.8) 100%);
+ content: '';
+ position: absolute;
+ inset: 0;
+ background: linear-gradient(to bottom, transparent 50%, rgba(12,12,14,0.8) 100%);
 }
-
+ 
 .verified-badge {
-  position: absolute;
-  top: 14px;
-  right: 14px;
-  background: rgba(74,158,116,0.2);
-  border: 1px solid rgba(74,158,116,0.4);
-  color: #6DBDA0;
-  padding: 5px 12px;
-  border-radius: 40px;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  gap: 5px;
+ position: absolute;
+ top: 14px;
+ right: 14px;
+ background: rgba(74,158,116,0.2);
+ border: 1px solid rgba(74,158,116,0.4);
+ color: #6DBDA0;
+ padding: 5px 12px;
+ border-radius: 40px;
+ font-size: 11px;
+ font-weight: 600;
+ letter-spacing: 0.5px;
+ z-index: 1;
+ display: flex;
+ align-items: center;
+ gap: 5px;
 }
 .verified-badge::before { content: '✓'; }
-
+ 
 .urgency-badge {
-  position: absolute;
-  top: 14px;
-  left: 14px;
-  background: rgba(200,88,88,0.2);
-  border: 1px solid rgba(200,88,88,0.4);
-  color: #E07A7A;
-  padding: 5px 12px;
-  border-radius: 40px;
-  font-size: 11px;
-  font-weight: 600;
-  z-index: 1;
+ position: absolute;
+ top: 14px;
+ left: 14px;
+ background: rgba(200,88,88,0.2);
+ border: 1px solid rgba(200,88,88,0.4);
+ color: #E07A7A;
+ padding: 5px 12px;
+ border-radius: 40px;
+ font-size: 11px;
+ font-weight: 600;
+ z-index: 1;
 }
-
+ 
 .card-body { padding: 20px; }
 .card-hotel { font-family: var(--serif); font-size: 20px; font-weight: 600; margin-bottom: 4px; line-height: 1.2; }
 .card-location { color: var(--muted2); font-size: 13px; margin-bottom: 14px; display: flex; align-items: center; gap: 4px; }
 .card-dates {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background: var(--ink3);
-  border-radius: 10px;
-  padding: 10px 14px;
-  margin-bottom: 14px;
-  font-size: 13px;
-  color: var(--muted2);
+ display: flex;
+ align-items: center;
+ gap: 8px;
+ background: var(--ink3);
+ border-radius: 10px;
+ padding: 10px 14px;
+ margin-bottom: 14px;
+ font-size: 13px;
+ color: var(--muted2);
 }
 .date-arrow { color: var(--gold); }
 .card-meta { display: flex; justify-content: space-between; align-items: center; }
@@ -522,136 +524,1477 @@ body::before {
 .resale-price { font-family: var(--serif); font-size: 26px; font-weight: 600; color: var(--gold); line-height: 1; }
 .per-night { font-size: 12px; color: var(--muted2); font-family: var(--sans); }
 .savings-tag {
-  background: rgba(74,158,116,0.12);
-  border: 1px solid rgba(74,158,116,0.25);
-  color: #6DBDA0;
-  padding: 6px 14px;
-  border-radius: 40px;
-  font-size: 12px;
-  font-weight: 600;
+ background: rgba(74,158,116,0.12);
+ border: 1px solid rgba(74,158,116,0.25);
+ color: #6DBDA0;
+ padding: 6px 14px;
+ border-radius: 40px;
+ font-size: 12px;
+ font-weight: 600;
 }
-
+ 
 /* ═══════════════════════════════════
-   PURCHASE MODAL
+  PURCHASE MODAL
 ═══════════════════════════════════ */
 .modal-overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.85);
-  backdrop-filter: blur(16px);
-  z-index: 400;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
+ display: none;
+ position: fixed;
+ inset: 0;
+ background: rgba(0,0,0,0.85);
+ backdrop-filter: blur(16px);
+ z-index: 400;
+ align-items: center;
+ justify-content: center;
+ padding: 20px;
 }
 .modal-overlay.open { display: flex; animation: fadeUp 0.3s ease; }
-
+ 
 .modal {
-  background: var(--ink2);
-  border: 1px solid var(--border);
-  border-radius: 24px;
-  width: 100%;
-  max-width: 560px;
-  max-height: 90vh;
-  overflow-y: auto;
+ background: var(--ink2);
+ border: 1px solid var(--border);
+ border-radius: 24px;
+ width: 100%;
+ max-width: 560px;
+ max-height: 90vh;
+ overflow-y: auto;
 }
 .modal-top {
-  padding: 24px 28px;
-  border-bottom: 1px solid var(--border);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: sticky;
-  top: 0;
-  background: var(--ink2);
-  z-index: 1;
+ padding: 24px 28px;
+ border-bottom: 1px solid var(--border);
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ position: sticky;
+ top: 0;
+ background: var(--ink2);
+ z-index: 1;
 }
 .modal-title { font-family: var(--serif); font-size: 22px; font-weight: 500; }
 .modal-close {
-  width: 34px; height: 34px;
-  background: var(--ink3);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-  color: var(--text);
-  font-size: 16px;
+ width: 34px; height: 34px;
+ background: var(--ink3);
+ border: 1px solid var(--border);
+ border-radius: 8px;
+ cursor: pointer;
+ display: flex; align-items: center; justify-content: center;
+ color: var(--text);
+ font-size: 16px;
 }
-
+ 
 .modal-body { padding: 28px; }
-
+ 
 .booking-summary {
-  background: var(--ink3);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 20px;
-  margin-bottom: 24px;
-  display: flex;
-  gap: 16px;
-  align-items: center;
+ background: var(--ink3);
+ border: 1px solid var(--border);
+ border-radius: 16px;
+ padding: 20px;
+ margin-bottom: 24px;
+ display: flex;
+ gap: 16px;
+ align-items: center;
 }
 .bs-icon { font-size: 40px; }
 .bs-hotel { font-family: var(--serif); font-size: 18px; font-weight: 600; margin-bottom: 4px; }
 .bs-dates { font-size: 13px; color: var(--muted2); }
-
+ 
 .payment-section { margin-bottom: 24px; }
 .pay-title { font-size: 13px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); margin-bottom: 14px; }
-
+ 
 .card-input-group {
-  background: var(--ink3);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  overflow: hidden;
-  margin-bottom: 12px;
+ background: var(--ink3);
+ border: 1px solid var(--border);
+ border-radius: 14px;
+ overflow: hidden;
+ margin-bottom: 12px;
 }
 .card-input-row {
-  display: flex;
-  align-items: center;
-  padding: 14px 16px;
-  border-bottom: 1px solid var(--border);
-  gap: 12px;
+ display: flex;
+ align-items: center;
+ padding: 14px 16px;
+ border-bottom: 1px solid var(--border);
+ gap: 12px;
 }
 .card-input-row:last-child { border: none; }
 .card-input-row input {
-  background: none;
-  border: none;
-  outline: none;
-  color: var(--text);
-  font-family: var(--sans);
-  font-size: 14px;
-  flex: 1;
+ background: none;
+ border: none;
+ outline: none;
+ color: var(--text);
+ font-family: var(--sans);
+ font-size: 14px;
+ flex: 1;
 }
 .card-input-row input::placeholder { color: var(--muted); }
 .card-icon { color: var(--muted); font-size: 18px; }
-
+ 
 .card-row-split { display: grid; grid-template-columns: 1fr 1fr; }
 .card-row-split .card-input-row:first-child { border-right: 1px solid var(--border); border-bottom: none; }
-
+ 
 .price-breakdown {
-  background: var(--ink3);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 18px;
-  margin-bottom: 20px;
+ background: var(--ink3);
+ border: 1px solid var(--border);
+ border-radius: 14px;
+ padding: 18px;
+ margin-bottom: 20px;
 }
 .pb-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 14px;
-  color: var(--muted2);
-  margin-bottom: 10px;
+ display: flex;
+ justify-content: space-between;
+ font-size: 14px;
+ color: var(--muted2);
+ margin-bottom: 10px;
 }
 .pb-row.original .val { text-decoration: line-through; color: var(--muted); }
 .pb-row.savings .val { color: var(--green); }
 .pb-row.total {
-  border-top: 1px solid var(--border);
-  padding-top: 12px;
-  margin-top: 4px;
-  margin-bottom: 0;
-  font-weight: 600;
-  font-size: 16px;
-  color: var(--text);
+ border-top: 1px solid var(--border);
+ padding-top: 12px;
+ margin-top: 4px;
+ margin-bottom: 0;
+ font-weight: 600;
+ font-size: 16px;
+ color: var(--text);
 }
 .pb-row.total .val { color: var(--gold); font-family: var(--serif); font-size: 20px; }
-
+ 
+.protection-notice {
+ display: flex;
+ gap: 10px;
+ background: rgba(74,158,116,0.06);
+ border: 1px solid rgba(74,158,116,0.2);
+ border-radius: 12px;
+ padding: 14px;
+ margin-bottom: 20px;
+ font-size: 13px;
+ color: var(--muted2);
+ line-height: 1.5;
+}
+.pn-icon { font-size: 20px; flex-shrink: 0; }
+ 
+.pay-btn {
+ width: 100%;
+ background: var(--gold);
+ color: var(--ink);
+ border: none;
+ border-radius: 14px;
+ padding: 16px;
+ font-family: var(--sans);
+ font-weight: 700;
+ font-size: 15px;
+ cursor: pointer;
+ transition: all 0.2s;
+ letter-spacing: 0.5px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ gap: 10px;
+}
+.pay-btn:hover { background: var(--gold2); transform: translateY(-1px); }
+ 
+/* ═══════════════════════════════════
+  SELLER VIEW
+═══════════════════════════════════ */
+.seller-view { padding: 48px; }
+.page-header { margin-bottom: 40px; }
+.page-header h2 { font-family: var(--serif); font-size: 38px; font-weight: 500; margin-bottom: 8px; }
+.page-header p { color: var(--muted2); font-size: 15px; }
+ 
+.list-booking-card {
+ background: var(--ink2);
+ border: 1px solid var(--border);
+ border-radius: 20px;
+ padding: 32px;
+ max-width: 680px;
+ margin-bottom: 32px;
+}
+.lbc-title { font-family: var(--serif); font-size: 22px; font-weight: 500; margin-bottom: 6px; }
+.lbc-subtitle { color: var(--muted2); font-size: 14px; margin-bottom: 28px; }
+ 
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+.form-group label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
+.form-group input, .form-group select, .form-group textarea {
+ background: var(--ink3);
+ border: 1px solid var(--border2);
+ border-radius: 10px;
+ padding: 12px 14px;
+ color: var(--text);
+ font-family: var(--sans);
+ font-size: 14px;
+ outline: none;
+ transition: border-color 0.2s;
+ resize: none;
+}
+.form-group input:focus, .form-group select:focus { border-color: var(--gold); }
+.form-group select option { background: var(--ink3); }
+.form-group textarea { height: 80px; }
+ 
+.pricing-guide {
+ background: rgba(212,185,120,0.04);
+ border: 1px solid rgba(212,185,120,0.15);
+ border-radius: 14px;
+ padding: 20px;
+ margin: 20px 0;
+}
+.pg-title { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--gold); margin-bottom: 12px; font-weight: 600; }
+.pg-bands { display: flex; gap: 8px; flex-wrap: wrap; }
+.pg-band {
+ background: var(--ink3);
+ border: 1px solid var(--border);
+ border-radius: 8px;
+ padding: 8px 14px;
+ font-size: 12px;
+}
+.pg-band strong { color: var(--gold); }
+ 
+.submit-btn {
+ background: var(--gold);
+ color: var(--ink);
+ border: none;
+ border-radius: 12px;
+ padding: 14px 36px;
+ font-family: var(--sans);
+ font-weight: 600;
+ font-size: 15px;
+ cursor: pointer;
+ transition: all 0.2s;
+}
+.submit-btn:hover { background: var(--gold2); transform: translateY(-1px); }
+ 
+/* MY LISTINGS */
+.my-listings { max-width: 680px; }
+.ml-title { font-family: var(--serif); font-size: 22px; font-weight: 500; margin-bottom: 20px; }
+.my-listing-item {
+ background: var(--ink2);
+ border: 1px solid var(--border);
+ border-radius: 16px;
+ padding: 20px;
+ margin-bottom: 12px;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+}
+.mli-left {}
+.mli-hotel { font-family: var(--serif); font-size: 18px; font-weight: 500; margin-bottom: 4px; }
+.mli-meta { font-size: 13px; color: var(--muted2); }
+.mli-right { text-align: right; }
+.mli-price { font-family: var(--serif); font-size: 22px; color: var(--gold); }
+.mli-status { font-size: 12px; margin-top: 4px; }
+.status-live { color: var(--green); }
+.status-pending { color: var(--gold); }
+.status-sold { color: var(--muted); }
+ 
+/* ═══════════════════════════════════
+  OWNER/ADMIN DASHBOARD
+═══════════════════════════════════ */
+.admin-layout {
+ display: grid;
+ grid-template-columns: 240px 1fr;
+ min-height: calc(100vh - 68px);
+}
+.admin-sidebar {
+ background: var(--ink2);
+ border-left: 1px solid var(--border);
+ padding: 28px 0;
+}
+.sidebar-section { margin-bottom: 8px; }
+.sidebar-label { font-size: 10px; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); padding: 0 24px; margin-bottom: 6px; }
+.sidebar-item {
+ display: flex;
+ align-items: center;
+ gap: 12px;
+ padding: 11px 24px;
+ cursor: pointer;
+ transition: all 0.2s;
+ font-size: 14px;
+ font-weight: 400;
+ color: var(--muted2);
+ border-right: 2px solid transparent;
+ position: relative;
+}
+.sidebar-item:hover { background: var(--ink3); color: var(--text); }
+.sidebar-item.active { color: var(--gold); border-right-color: var(--gold); background: rgba(212,185,120,0.04); }
+.si-icon { font-size: 16px; width: 20px; text-align: center; }
+.si-badge {
+ margin-left: auto;
+ background: var(--gold);
+ color: var(--ink);
+ font-size: 10px;
+ font-weight: 700;
+ padding: 2px 7px;
+ border-radius: 10px;
+ min-width: 20px;
+ text-align: center;
+}
+ 
+.admin-main { padding: 36px; overflow-y: auto; }
+ 
+.admin-panel { display: none; }
+.admin-panel.active { display: block; animation: fadeUp 0.3s ease; }
+ 
+/* KPI CARDS */
+.kpi-grid {
+ display: grid;
+ grid-template-columns: repeat(4, 1fr);
+ gap: 16px;
+ margin-bottom: 32px;
+}
+.kpi-card {
+ background: var(--ink2);
+ border: 1px solid var(--border);
+ border-radius: 16px;
+ padding: 22px;
+ position: relative;
+ overflow: hidden;
+ transition: all 0.3s;
+}
+.kpi-card:hover { border-color: rgba(212,185,120,0.35); }
+.kpi-card::after {
+ content: '';
+ position: absolute;
+ top: 0; right: 0;
+ width: 60px; height: 60px;
+ border-radius: 0 16px 0 60px;
+ background: rgba(212,185,120,0.04);
+}
+.kpi-icon { font-size: 20px; margin-bottom: 12px; }
+.kpi-label { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); margin-bottom: 6px; }
+.kpi-value { font-family: var(--serif); font-size: 32px; font-weight: 600; color: var(--gold); margin-bottom: 4px; }
+.kpi-change { font-size: 12px; color: var(--green); }
+.kpi-change.down { color: var(--red); }
+ 
+/* TABLES */
+.admin-table-wrap {
+ background: var(--ink2);
+ border: 1px solid var(--border);
+ border-radius: 18px;
+ overflow: hidden;
+ margin-bottom: 24px;
+}
+.atw-header {
+ padding: 18px 22px;
+ border-bottom: 1px solid var(--border);
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+}
+.atw-title { font-family: var(--serif); font-size: 20px; font-weight: 500; }
+.atw-actions { display: flex; gap: 8px; }
+ 
+.tbl { width: 100%; border-collapse: collapse; }
+.tbl thead th {
+ background: var(--ink3);
+ padding: 12px 18px;
+ text-align: left;
+ font-size: 11px;
+ text-transform: uppercase;
+ letter-spacing: 1px;
+ color: var(--muted);
+ font-weight: 600;
+}
+.tbl tbody tr { border-bottom: 1px solid rgba(255,255,255,0.04); transition: background 0.15s; }
+.tbl tbody tr:hover { background: var(--ink3); }
+.tbl tbody td { padding: 14px 18px; font-size: 13px; }
+.tbl tbody tr:last-child { border: none; }
+ 
+.pill {
+ display: inline-block;
+ padding: 3px 12px;
+ border-radius: 20px;
+ font-size: 11px;
+ font-weight: 600;
+ text-transform: uppercase;
+ letter-spacing: 0.5px;
+}
+.pill-green { background: rgba(74,158,116,0.12); color: #6DBDA0; }
+.pill-gold { background: rgba(212,185,120,0.12); color: var(--gold); }
+.pill-red { background: rgba(200,88,88,0.12); color: #E07A7A; }
+.pill-blue { background: rgba(74,120,200,0.12); color: #7AB0E0; }
+ 
+.tbl-btn {
+ padding: 5px 12px;
+ border-radius: 6px;
+ border: 1px solid var(--border);
+ background: transparent;
+ color: var(--text);
+ font-family: var(--sans);
+ font-size: 11px;
+ cursor: pointer;
+ transition: all 0.15s;
+}
+.tbl-btn:hover { border-color: var(--gold); color: var(--gold); }
+.tbl-btn.danger:hover { border-color: var(--red); color: #E07A7A; }
+ 
+/* TOAST */
+.toast {
+ position: fixed;
+ bottom: 28px;
+ left: 50%;
+ transform: translateX(-50%) translateY(80px);
+ background: var(--ink3);
+ border: 1px solid var(--border);
+ color: var(--text);
+ padding: 14px 28px;
+ border-radius: 50px;
+ font-size: 14px;
+ font-weight: 500;
+ z-index: 998;
+ transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
+ display: flex;
+ align-items: center;
+ gap: 10px;
+ box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+ white-space: nowrap;
+}
+.toast.show { transform: translateX(-50%) translateY(0); }
+ 
+/* SUCCESS SCREEN */
+.success-screen {
+ display: none;
+ text-align: center;
+ padding: 48px 28px;
+}
+.success-screen.show { display: block; animation: fadeUp 0.4s ease; }
+.success-ring {
+ width: 80px; height: 80px;
+ border-radius: 50%;
+ background: rgba(74,158,116,0.12);
+ border: 2px solid rgba(74,158,116,0.4);
+ display: flex; align-items: center; justify-content: center;
+ font-size: 36px;
+ margin: 0 auto 20px;
+}
+.success-title { font-family: var(--serif); font-size: 28px; font-weight: 500; margin-bottom: 8px; }
+.success-sub { color: var(--muted2); font-size: 14px; margin-bottom: 28px; line-height: 1.6; }
+.booking-ref {
+ background: var(--ink3);
+ border: 1px solid var(--border);
+ border-radius: 12px;
+ padding: 16px;
+ font-family: 'Courier New', monospace;
+ color: var(--gold);
+ font-size: 20px;
+ letter-spacing: 3px;
+ margin-bottom: 20px;
+}
+ 
+/* Small utility */
+.tag-gold { color: var(--gold); }
+.gap-8 { gap: 8px; }
+.flex { display: flex; }
+.items-center { align-items: center; }
+ 
+@media (max-width: 900px) {
+ .nav { padding: 0 20px; }
+ .nav-center { display: none; }
+ .hero { padding: 48px 20px; }
+ .hero h1 { font-size: 40px; }
+ .listings-section { padding: 28px 20px; }
+ .kpi-grid { grid-template-columns: 1fr 1fr; }
+ .admin-layout { grid-template-columns: 1fr; }
+ .admin-sidebar { display: none; }
+ .seller-view { padding: 28px 20px; }
+ .form-grid { grid-template-columns: 1fr; }
+ .search-container { flex-direction: column; align-items: stretch; padding: 16px; gap: 12px; }
+ .search-field { border: none; padding: 0; }
+}
+</style>
+</head>
+<body>
+ 
+<!-- ── NAV ── -->
+<nav class="nav">
+ <div class="logo" onclick="goHome()">YEM<em>DEEK</em></div>
+ <div class="nav-center" id="main-nav">
+   <button class="nav-tab active" onclick="switchView('marketplace', this)">Browse Listings</button>
+   <button class="nav-tab" onclick="switchView('seller', this)">Sell a Booking</button>
+   <button class="nav-tab" onclick="switchView('admin', this)">Dashboard</button>
+ </div>
+ <div class="nav-right">
+   <div class="nav-user" id="nav-user-btn" onclick="openAuth()">
+     <div class="avatar" id="nav-avatar">?</div>
+     <span class="nav-name" id="nav-name">Sign In</span>
+   </div>
+ </div>
+</nav>
+ 
+<!-- ═══════════════════════════════════
+    AUTH MODAL
+═══════════════════════════════════ -->
+<div id="auth-modal" class="auth-overlay">
+ <div class="auth-box">
+   <div class="auth-header">
+     <div class="auth-logo">YEMDEEK</div>
+     <div class="auth-subtitle">Verified Resale. Protected Payments.</div>
+     <div style="display:flex;gap:0;border-bottom:1px solid var(--border)">
+       <button class="auth-tab active" id="tab-login" onclick="switchAuthTab('login')">Sign In</button>
+       <button class="auth-tab" id="tab-register" onclick="switchAuthTab('register')">Create Account</button>
+     </div>
+   </div>
+   <div class="auth-body">
+ 
+     <!-- LOGIN -->
+     <div id="auth-login">
+       <div class="form-group">
+         <label>Email Address</label>
+         <input type="email" id="login-email" placeholder="you@example.com">
+       </div>
+       <div class="form-group">
+         <label>Password</label>
+         <input type="password" id="login-pass" placeholder="••••••••">
+       </div>
+       <button class="auth-btn" onclick="doLogin()">Sign In Securely</button>
+       <div class="auth-divider">or continue as demo</div>
+       <div class="auth-role-select">
+         <div class="role-btn" onclick="demoLogin('buyer')">
+           <div class="role-icon">🔍</div>
+           <div class="role-label">Buyer Demo</div>
+           <div class="role-desc">Browse & purchase</div>
+         </div>
+         <div class="role-btn" onclick="demoLogin('seller')">
+           <div class="role-icon">🏨</div>
+           <div class="role-label">Seller Demo</div>
+           <div class="role-desc">List your booking</div>
+         </div>
+         <div class="role-btn" onclick="demoLogin('admin')" style="grid-column:1/-1">
+           <div class="role-icon">⚙️</div>
+           <div class="role-label">Owner Dashboard</div>
+           <div class="role-desc">Full admin access</div>
+         </div>
+       </div>
+     </div>
+ 
+     <!-- REGISTER -->
+     <div id="auth-register" style="display:none">
+       <div class="auth-role-select" style="margin-bottom:18px">
+         <div class="role-btn active" id="role-buyer" onclick="selectRole('buyer')">
+           <div class="role-icon">🔍</div>
+           <div class="role-label">I want to Buy</div>
+           <div class="role-desc">Find verified deals</div>
+         </div>
+         <div class="role-btn" id="role-seller" onclick="selectRole('seller')">
+           <div class="role-icon">🏨</div>
+           <div class="role-label">I want to Sell</div>
+           <div class="role-desc">List unused bookings</div>
+         </div>
+       </div>
+       <div class="form-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+         <div class="form-group">
+           <label>First Name</label>
+           <input type="text" placeholder="Nasser">
+         </div>
+         <div class="form-group">
+           <label>Last Name</label>
+           <input type="text" placeholder="Al-Harbi">
+         </div>
+       </div>
+       <div class="form-group">
+         <label>Email Address</label>
+         <input type="email" placeholder="you@example.com">
+       </div>
+       <div class="form-group">
+         <label>Mobile (for Nafath verification)</label>
+         <input type="text" placeholder="+966 5X XXX XXXX">
+       </div>
+       <div class="form-group">
+         <label>Password</label>
+         <input type="password" placeholder="Min 8 characters">
+       </div>
+       <button class="auth-btn" onclick="doRegister()">Create Account & Verify with Nafath →</button>
+     </div>
+ 
+     <div class="trust-badges">
+       <div class="trust-item"><div class="trust-icon">🛡️</div><div class="trust-text">Nafath Verified</div></div>
+       <div class="trust-item"><div class="trust-icon">🔒</div><div class="trust-text">Protected Payment</div></div>
+       <div class="trust-item"><div class="trust-icon">✅</div><div class="trust-text">Booking Validated</div></div>
+       <div class="trust-item"><div class="trust-icon">⚖️</div><div class="trust-text">Dispute Support</div></div>
+     </div>
+   </div>
+ </div>
+</div>
+ 
+<!-- ═══════════════════════════════════
+    MARKETPLACE VIEW
+═══════════════════════════════════ -->
+<div id="view-marketplace" class="view active">
+ <div class="hero">
+   <div class="hero-bg"></div>
+   <div class="hero-lines"></div>
+   <div class="hero-content">
+     <div class="hero-tag">Saudi Arabia's First Verified Resale Platform</div>
+     <h1>Don't lose your<br>booking. <em>Sell it.</em></h1>
+     <p>YEMDEEK connects verified sellers of unused luxury hotel bookings with buyers seeking last-minute deals — safely, fairly, and with full protection.</p>
+     <div class="hero-stats">
+       <div><div class="hero-stat-value">340+</div><div class="hero-stat-label">Verified Listings</div></div>
+       <div><div class="hero-stat-value">SAR 2.1M</div><div class="hero-stat-label">Value Recovered</div></div>
+       <div><div class="hero-stat-value">98%</div><div class="hero-stat-label">Trust Score</div></div>
+     </div>
+     <div class="search-container">
+       <div class="search-field">
+         <div class="sf-label">Destination</div>
+         <input class="sf-input" placeholder="Riyadh, Jeddah, NEOM...">
+       </div>
+       <div class="search-field">
+         <div class="sf-label">Check-in</div>
+         <input class="sf-input" type="date">
+       </div>
+       <div class="search-field">
+         <div class="sf-label">Check-out</div>
+         <input class="sf-input" type="date">
+       </div>
+       <div class="search-field">
+         <div class="sf-label">Guests</div>
+         <input class="sf-input" placeholder="2 guests">
+       </div>
+       <button class="search-btn" onclick="toast('Searching verified listings...')">Search</button>
+     </div>
+   </div>
+ </div>
+ 
+ <div class="listings-section">
+   <div class="sec-header">
+     <div class="sec-title">Verified Resale Listings</div>
+     <div class="sec-count">12 listings available today</div>
+   </div>
+   <div class="filter-bar">
+     <div class="filter-chip active">All Hotels</div>
+     <div class="filter-chip">5-Star Only</div>
+     <div class="filter-chip">Under 7 Days</div>
+     <div class="filter-chip">Riyadh</div>
+     <div class="filter-chip">Jeddah</div>
+     <div class="filter-chip">NEOM</div>
+     <div class="filter-chip" onclick="toggleFilter(this)">Best Savings</div>
+   </div>
+ 
+   <div class="listings-grid">
+ 
+     <div class="listing-card" onclick="openPurchase('The Ritz-Carlton, Riyadh', '🏛️', 'h1', 3, 2800, 1900, 'May 12 → May 15')">
+       <div class="card-img h1">
+         🏛️
+         <div class="verified-badge">Verified</div>
+         <div class="urgency-badge">2 hrs left</div>
+       </div>
+       <div class="card-body">
+         <div class="card-hotel">The Ritz-Carlton, Riyadh</div>
+         <div class="card-location">📍 Olaya District, Riyadh</div>
+         <div class="card-dates">
+           <span>May 12, 2025</span>
+           <span class="date-arrow">→</span>
+           <span>May 15, 2025</span>
+           <span style="margin-right:auto;font-size:11px;color:var(--muted)">3 nights</span>
+         </div>
+         <div class="card-meta">
+           <div class="card-price-area">
+             <div class="original-price">SAR 2,800/night</div>
+             <div class="resale-price">1,900 <span class="per-night">SAR/night</span></div>
+           </div>
+           <div class="savings-tag">Save 32%</div>
+         </div>
+       </div>
+     </div>
+ 
+     <div class="listing-card" onclick="openPurchase('Four Seasons Hotel Riyadh', '🌿', 'h3', 2, 3200, 2400, 'May 18 → May 20')">
+       <div class="card-img h3">
+         🌿
+         <div class="verified-badge">Verified</div>
+       </div>
+       <div class="card-body">
+         <div class="card-hotel">Four Seasons Hotel Riyadh</div>
+         <div class="card-location">📍 Kingdom Tower, Riyadh</div>
+         <div class="card-dates">
+           <span>May 18, 2025</span>
+           <span class="date-arrow">→</span>
+           <span>May 20, 2025</span>
+           <span style="margin-right:auto;font-size:11px;color:var(--muted)">2 nights</span>
+         </div>
+         <div class="card-meta">
+           <div class="card-price-area">
+             <div class="original-price">SAR 3,200/night</div>
+             <div class="resale-price">2,400 <span class="per-night">SAR/night</span></div>
+           </div>
+           <div class="savings-tag">Save 25%</div>
+         </div>
+       </div>
+     </div>
+ 
+     <div class="listing-card" onclick="openPurchase('Rosewood Jeddah', '🌊', 'h2', 4, 1800, 1250, 'May 22 → May 26')">
+       <div class="card-img h2">
+         🌊
+         <div class="verified-badge">Verified</div>
+       </div>
+       <div class="card-body">
+         <div class="card-hotel">Rosewood Jeddah</div>
+         <div class="card-location">📍 Corniche, Jeddah</div>
+         <div class="card-dates">
+           <span>May 22, 2025</span>
+           <span class="date-arrow">→</span>
+           <span>May 26, 2025</span>
+           <span style="margin-right:auto;font-size:11px;color:var(--muted)">4 nights</span>
+         </div>
+         <div class="card-meta">
+           <div class="card-price-area">
+             <div class="original-price">SAR 1,800/night</div>
+             <div class="resale-price">1,250 <span class="per-night">SAR/night</span></div>
+           </div>
+           <div class="savings-tag">Save 30%</div>
+         </div>
+       </div>
+     </div>
+ 
+     <div class="listing-card" onclick="openPurchase('Banyan Tree AlUla', '🏜️', 'h4', 3, 4500, 3200, 'Jun 2 → Jun 5')">
+       <div class="card-img h4">
+         🏜️
+         <div class="verified-badge">Verified</div>
+         <div class="urgency-badge">Last room</div>
+       </div>
+       <div class="card-body">
+         <div class="card-hotel">Banyan Tree AlUla</div>
+         <div class="card-location">📍 AlUla Heritage District</div>
+         <div class="card-dates">
+           <span>Jun 2, 2025</span>
+           <span class="date-arrow">→</span>
+           <span>Jun 5, 2025</span>
+           <span style="margin-right:auto;font-size:11px;color:var(--muted)">3 nights</span>
+         </div>
+         <div class="card-meta">
+           <div class="card-price-area">
+             <div class="original-price">SAR 4,500/night</div>
+             <div class="resale-price">3,200 <span class="per-night">SAR/night</span></div>
+           </div>
+           <div class="savings-tag">Save 29%</div>
+         </div>
+       </div>
+     </div>
+ 
+     <div class="listing-card" onclick="openPurchase('SINDALAH Island Resort', '🛥️', 'h5', 5, 5800, 4100, 'Jun 10 → Jun 15')">
+       <div class="card-img h5">
+         🛥️
+         <div class="verified-badge">Verified</div>
+       </div>
+       <div class="card-body">
+         <div class="card-hotel">SINDALAH Island Resort, NEOM</div>
+         <div class="card-location">📍 NEOM, Red Sea</div>
+         <div class="card-dates">
+           <span>Jun 10, 2025</span>
+           <span class="date-arrow">→</span>
+           <span>Jun 15, 2025</span>
+           <span style="margin-right:auto;font-size:11px;color:var(--muted)">5 nights</span>
+         </div>
+         <div class="card-meta">
+           <div class="card-price-area">
+             <div class="original-price">SAR 5,800/night</div>
+             <div class="resale-price">4,100 <span class="per-night">SAR/night</span></div>
+           </div>
+           <div class="savings-tag">Save 29%</div>
+         </div>
+       </div>
+     </div>
+ 
+     <div class="listing-card" onclick="openPurchase('Park Hyatt Jeddah', '⚓', 'h1', 2, 2200, 1600, 'Jun 8 → Jun 10')">
+       <div class="card-img h1" style="background:linear-gradient(160deg,#05101a,#0a1f36,#05101a)">
+         ⚓
+         <div class="verified-badge">Verified</div>
+       </div>
+       <div class="card-body">
+         <div class="card-hotel">Park Hyatt Jeddah</div>
+         <div class="card-location">📍 Marina, Jeddah</div>
+         <div class="card-dates">
+           <span>Jun 8, 2025</span>
+           <span class="date-arrow">→</span>
+           <span>Jun 10, 2025</span>
+           <span style="margin-right:auto;font-size:11px;color:var(--muted)">2 nights</span>
+         </div>
+         <div class="card-meta">
+           <div class="card-price-area">
+             <div class="original-price">SAR 2,200/night</div>
+             <div class="resale-price">1,600 <span class="per-night">SAR/night</span></div>
+           </div>
+           <div class="savings-tag">Save 27%</div>
+         </div>
+       </div>
+     </div>
+ 
+   </div>
+ </div>
+</div>
+ 
+<!-- ═══════════════════════════════════
+    SELLER VIEW
+═══════════════════════════════════ -->
+<div id="view-seller" class="view">
+ <div class="seller-view">
+   <div class="page-header">
+     <h2>List Your <em style="font-family:var(--serif);font-style:italic;color:var(--gold)">Booking</em></h2>
+     <p>Recover value from your unused reservation — verified, protected, and fairly priced.</p>
+   </div>
+ 
+   <div class="list-booking-card">
+     <div class="lbc-title">Booking Details</div>
+     <div class="lbc-subtitle">We'll verify your booking directly with the hotel before it goes live.</div>
+ 
+     <div class="form-grid">
+       <div class="form-group">
+         <label>Hotel Name</label>
+         <input type="text" placeholder="e.g. The Ritz-Carlton, Riyadh">
+       </div>
+       <div class="form-group">
+         <label>City</label>
+         <select>
+           <option>Riyadh</option>
+           <option>Jeddah</option>
+           <option>AlUla</option>
+           <option>NEOM</option>
+           <option>Abha</option>
+           <option>Dammam</option>
+         </select>
+       </div>
+     </div>
+     <div class="form-grid">
+       <div class="form-group">
+         <label>Check-in Date</label>
+         <input type="date">
+       </div>
+       <div class="form-group">
+         <label>Check-out Date</label>
+         <input type="date">
+       </div>
+     </div>
+     <div class="form-grid">
+       <div class="form-group">
+         <label>Room Type</label>
+         <input type="text" placeholder="e.g. Deluxe Suite, King Room">
+       </div>
+       <div class="form-group">
+         <label>Original Price Paid (SAR/night)</label>
+         <input type="number" placeholder="e.g. 2800">
+       </div>
+     </div>
+     <div class="form-group">
+       <label>Your Asking Price (SAR/night)</label>
+       <input type="number" placeholder="e.g. 1900" id="asking-price" oninput="updatePricingGuide(this.value)">
+     </div>
+ 
+     <div class="pricing-guide">
+       <div class="pg-title">Controlled Pricing Bands</div>
+       <div class="pg-bands">
+         <div class="pg-band">Minimum: <strong>50%</strong> of original</div>
+         <div class="pg-band">Maximum: <strong>90%</strong> of original</div>
+         <div class="pg-band">Your Commission: <strong>7%</strong></div>
+         <div class="pg-band" id="payout-estimate" style="border-color:rgba(212,185,120,0.4)">You receive: <strong style="color:var(--gold)">Enter price above</strong></div>
+       </div>
+     </div>
+ 
+     <div class="form-group">
+       <label>Booking Confirmation Number</label>
+       <input type="text" placeholder="RC-2025-XXXXX">
+     </div>
+     <div class="form-group" style="margin-bottom:24px">
+       <label>Additional Notes</label>
+       <textarea placeholder="Breakfast included, sea view, any special conditions..."></textarea>
+     </div>
+ 
+     <button class="submit-btn" onclick="submitListing()">Submit for Verification →</button>
+   </div>
+ 
+   <!-- MY LISTINGS -->
+   <div class="my-listings">
+     <div class="ml-title">My Active Listings</div>
+     <div class="my-listing-item">
+       <div class="mli-left">
+         <div class="mli-hotel">Four Seasons Riyadh</div>
+         <div class="mli-meta">3 nights · May 10–13 · Suite</div>
+       </div>
+       <div class="mli-right">
+         <div class="mli-price">SAR 2,100/night</div>
+         <div class="mli-status status-live">● Live · 8 views</div>
+       </div>
+     </div>
+     <div class="my-listing-item">
+       <div class="mli-left">
+         <div class="mli-hotel">Rosewood Jeddah</div>
+         <div class="mli-meta">2 nights · May 22–24 · Deluxe</div>
+       </div>
+       <div class="mli-right">
+         <div class="mli-price">SAR 1,400/night</div>
+         <div class="mli-status status-pending">◐ Under Verification</div>
+       </div>
+     </div>
+     <div class="my-listing-item">
+       <div class="mli-left">
+         <div class="mli-hotel">Banyan Tree AlUla</div>
+         <div class="mli-meta">4 nights · April 5–9 · Villa</div>
+       </div>
+       <div class="mli-right">
+         <div class="mli-price">SAR 3,800/night</div>
+         <div class="mli-status status-sold">✓ Sold · SAR 14,260 received</div>
+       </div>
+     </div>
+   </div>
+ </div>
+</div>
+ 
+<!-- ═══════════════════════════════════
+    ADMIN DASHBOARD
+═══════════════════════════════════ -->
+<div id="view-admin" class="view">
+ <div class="admin-layout">
+   <div class="admin-sidebar">
+     <div class="sidebar-section">
+       <div class="sidebar-label">Overview</div>
+       <div class="sidebar-item active" onclick="showPanel('overview', this)">
+         <span class="si-icon">📊</span> Dashboard
+       </div>
+       <div class="sidebar-item" onclick="showPanel('bookings', this)">
+         <span class="si-icon">📋</span> All Bookings
+         <span class="si-badge">3</span>
+       </div>
+       <div class="sidebar-item" onclick="showPanel('verification', this)">
+         <span class="si-icon">✅</span> Verification Queue
+         <span class="si-badge">5</span>
+       </div>
+     </div>
+     <div class="sidebar-section" style="margin-top:16px">
+       <div class="sidebar-label">Finance</div>
+       <div class="sidebar-item" onclick="showPanel('payments', this)">
+         <span class="si-icon">💳</span> Payments
+       </div>
+       <div class="sidebar-item" onclick="showPanel('disputes', this)">
+         <span class="si-icon">⚖️</span> Disputes
+         <span class="si-badge" style="background:var(--red);color:white">1</span>
+       </div>
+     </div>
+     <div class="sidebar-section" style="margin-top:16px">
+       <div class="sidebar-label">Users</div>
+       <div class="sidebar-item" onclick="showPanel('users', this)">
+         <span class="si-icon">👥</span> All Users
+       </div>
+     </div>
+   </div>
+ 
+   <div class="admin-main">
+ 
+     <!-- OVERVIEW -->
+     <div id="panel-overview" class="admin-panel active">
+       <div style="margin-bottom:28px">
+         <div style="font-family:var(--serif);font-size:32px;font-weight:500;margin-bottom:6px">Good morning, YEMDEEK</div>
+         <div style="color:var(--muted2);font-size:14px">Wednesday, 6 May 2026 · Riyadh, KSA</div>
+       </div>
+       <div class="kpi-grid">
+         <div class="kpi-card">
+           <div class="kpi-icon">💰</div>
+           <div class="kpi-label">Revenue (May)</div>
+           <div class="kpi-value">142K</div>
+           <div class="kpi-change">↑ 23% vs April</div>
+         </div>
+         <div class="kpi-card">
+           <div class="kpi-icon">🔄</div>
+           <div class="kpi-label">Total Transactions</div>
+           <div class="kpi-value">218</div>
+           <div class="kpi-change">↑ 18% this month</div>
+         </div>
+         <div class="kpi-card">
+           <div class="kpi-icon">📋</div>
+           <div class="kpi-label">Active Listings</div>
+           <div class="kpi-value">47</div>
+           <div class="kpi-change">↑ 12 new today</div>
+         </div>
+         <div class="kpi-card">
+           <div class="kpi-icon">🛡️</div>
+           <div class="kpi-label">Trust Score</div>
+           <div class="kpi-value">98%</div>
+           <div class="kpi-change">0 fraud incidents</div>
+         </div>
+       </div>
+ 
+       <div class="admin-table-wrap">
+         <div class="atw-header">
+           <div class="atw-title">Recent Transactions</div>
+           <div class="atw-actions">
+             <button class="tbl-btn" onclick="toast('Exporting report...')">Export CSV</button>
+           </div>
+         </div>
+         <table class="tbl">
+           <thead><tr>
+             <th>Booking ID</th><th>Hotel</th><th>Buyer</th><th>Seller</th><th>Amount</th><th>Commission</th><th>Status</th><th>Action</th>
+           </tr></thead>
+           <tbody>
+             <tr>
+               <td style="font-family:monospace;color:var(--gold)">#YM-1041</td>
+               <td>Ritz-Carlton Riyadh</td><td>M. Al-Harbi</td><td>F. Al-Otaibi</td>
+               <td>SAR 5,700</td><td>SAR 399</td>
+               <td><span class="pill pill-green">Completed</span></td>
+               <td><button class="tbl-btn" onclick="toast('Viewing transaction #YM-1041')">View</button></td>
+             </tr>
+             <tr>
+               <td style="font-family:monospace;color:var(--gold)">#YM-1040</td>
+               <td>Four Seasons Riyadh</td><td>S. Al-Zahrani</td><td>K. Al-Mutairi</td>
+               <td>SAR 4,800</td><td>SAR 336</td>
+               <td><span class="pill pill-green">Completed</span></td>
+               <td><button class="tbl-btn" onclick="toast('Viewing transaction #YM-1040')">View</button></td>
+             </tr>
+             <tr>
+               <td style="font-family:monospace;color:var(--gold)">#YM-1039</td>
+               <td>Rosewood Jeddah</td><td>N. Al-Qahtani</td><td>A. Al-Shehri</td>
+               <td>SAR 5,000</td><td>SAR 350</td>
+               <td><span class="pill pill-gold">In Escrow</span></td>
+               <td><button class="tbl-btn" onclick="toast('Releasing payment...')">Release</button></td>
+             </tr>
+             <tr>
+               <td style="font-family:monospace;color:var(--gold)">#YM-1038</td>
+               <td>Banyan Tree AlUla</td><td>H. Al-Dosari</td><td>R. Al-Ghamdi</td>
+               <td>SAR 9,600</td><td>SAR 672</td>
+               <td><span class="pill pill-red">Disputed</span></td>
+               <td><button class="tbl-btn danger" onclick="toast('Opening dispute case...')">Review</button></td>
+             </tr>
+           </tbody>
+         </table>
+       </div>
+     </div>
+ 
+     <!-- VERIFICATION QUEUE -->
+     <div id="panel-verification" class="admin-panel">
+       <div style="font-family:var(--serif);font-size:28px;font-weight:500;margin-bottom:24px">Verification Queue</div>
+       <div class="admin-table-wrap">
+         <div class="atw-header">
+           <div class="atw-title">Pending Verification <span style="color:var(--gold);font-family:var(--sans);font-size:14px">(5 listings)</span></div>
+         </div>
+         <table class="tbl">
+           <thead><tr>
+             <th>Listing ID</th><th>Hotel</th><th>Seller</th><th>Dates</th><th>Price</th><th>Conf. No.</th><th>Status</th><th>Action</th>
+           </tr></thead>
+           <tbody>
+             <tr>
+               <td style="font-family:monospace;color:var(--gold)">#LST-089</td>
+               <td>The Ritz-Carlton Riyadh</td><td>M. Al-Harbi</td>
+               <td>May 20–23</td><td>SAR 1,900/night</td>
+               <td style="font-family:monospace">RC-2025-4821</td>
+               <td><span class="pill pill-gold">Pending</span></td>
+               <td style="display:flex;gap:6px;padding:14px 18px">
+                 <button class="tbl-btn" onclick="toast('✅ Listing #LST-089 approved!')">Approve</button>
+                 <button class="tbl-btn danger" onclick="toast('❌ Listing rejected')">Reject</button>
+               </td>
+             </tr>
+             <tr>
+               <td style="font-family:monospace;color:var(--gold)">#LST-088</td>
+               <td>Park Hyatt Jeddah</td><td>S. Al-Zahrani</td>
+               <td>Jun 1–4</td><td>SAR 1,400/night</td>
+               <td style="font-family:monospace">PH-JED-3301</td>
+               <td><span class="pill pill-gold">Pending</span></td>
+               <td style="display:flex;gap:6px;padding:14px 18px">
+                 <button class="tbl-btn" onclick="toast('✅ Listing #LST-088 approved!')">Approve</button>
+                 <button class="tbl-btn danger" onclick="toast('❌ Listing rejected')">Reject</button>
+               </td>
+             </tr>
+             <tr>
+               <td style="font-family:monospace;color:var(--gold)">#LST-087</td>
+               <td>SINDALAH, NEOM</td><td>K. Al-Mutairi</td>
+               <td>Jun 15–20</td><td>SAR 3,800/night</td>
+               <td style="font-family:monospace">NEO-2025-019</td>
+               <td><span class="pill pill-blue">Calling Hotel</span></td>
+               <td style="display:flex;gap:6px;padding:14px 18px">
+                 <button class="tbl-btn" onclick="toast('✅ Listing #LST-087 approved!')">Approve</button>
+                 <button class="tbl-btn danger" onclick="toast('❌ Listing rejected')">Reject</button>
+               </td>
+             </tr>
+           </tbody>
+         </table>
+       </div>
+     </div>
+ 
+     <!-- PAYMENTS -->
+     <div id="panel-payments" class="admin-panel">
+       <div style="font-family:var(--serif);font-size:28px;font-weight:500;margin-bottom:24px">Payment Management</div>
+       <div class="kpi-grid" style="grid-template-columns:repeat(3,1fr)">
+         <div class="kpi-card">
+           <div class="kpi-icon">💳</div>
+           <div class="kpi-label">In Escrow</div>
+           <div class="kpi-value">SAR 38K</div>
+           <div class="kpi-change">8 transactions</div>
+         </div>
+         <div class="kpi-card">
+           <div class="kpi-icon">✅</div>
+           <div class="kpi-label">Released Today</div>
+           <div class="kpi-value">SAR 12K</div>
+           <div class="kpi-change">3 completed</div>
+         </div>
+         <div class="kpi-card">
+           <div class="kpi-icon">📈</div>
+           <div class="kpi-label">Commission (May)</div>
+           <div class="kpi-value">SAR 9.8K</div>
+           <div class="kpi-change">↑ 31% vs April</div>
+         </div>
+       </div>
+       <div class="admin-table-wrap">
+         <div class="atw-header"><div class="atw-title">Escrow Queue</div></div>
+         <table class="tbl">
+           <thead><tr><th>ID</th><th>Hotel</th><th>Amount</th><th>Held Since</th><th>Status</th><th>Action</th></tr></thead>
+           <tbody>
+             <tr>
+               <td style="font-family:monospace;color:var(--gold)">#YM-1039</td>
+               <td>Rosewood Jeddah</td><td>SAR 5,000</td><td>May 3, 2025</td>
+               <td><span class="pill pill-gold">Awaiting Check-in</span></td>
+               <td><button class="tbl-btn" onclick="toast('Payment released to seller ✓')">Release</button></td>
+             </tr>
+             <tr>
+               <td style="font-family:monospace;color:var(--gold)">#YM-1037</td>
+               <td>Four Seasons Riyadh</td><td>SAR 6,400</td><td>May 1, 2025</td>
+               <td><span class="pill pill-gold">Awaiting Check-in</span></td>
+               <td><button class="tbl-btn" onclick="toast('Payment released to seller ✓')">Release</button></td>
+             </tr>
+           </tbody>
+         </table>
+       </div>
+     </div>
+ 
+     <!-- DISPUTES -->
+     <div id="panel-disputes" class="admin-panel">
+       <div style="font-family:var(--serif);font-size:28px;font-weight:500;margin-bottom:24px">Dispute Resolution</div>
+       <div class="admin-table-wrap">
+         <div class="atw-header">
+           <div class="atw-title">Open Disputes <span style="color:var(--red);font-family:var(--sans);font-size:14px">(1 open)</span></div>
+         </div>
+         <table class="tbl">
+           <thead><tr><th>ID</th><th>Hotel</th><th>Buyer</th><th>Seller</th><th>Issue</th><th>Amount</th><th>Action</th></tr></thead>
+           <tbody>
+             <tr>
+               <td style="font-family:monospace;color:var(--gold)">#DSP-012</td>
+               <td>Banyan Tree AlUla</td>
+               <td>H. Al-Dosari</td><td>R. Al-Ghamdi</td>
+               <td>Room type mismatch</td>
+               <td>SAR 9,600</td>
+               <td style="display:flex;gap:6px;padding:14px 18px">
+                 <button class="tbl-btn" onclick="toast('Refunding buyer ✓')">Refund Buyer</button>
+                 <button class="tbl-btn" onclick="toast('Releasing to seller ✓')">Release Seller</button>
+               </td>
+             </tr>
+           </tbody>
+         </table>
+       </div>
+     </div>
+ 
+     <!-- USERS -->
+     <div id="panel-users" class="admin-panel">
+       <div style="font-family:var(--serif);font-size:28px;font-weight:500;margin-bottom:24px">User Management</div>
+       <div class="admin-table-wrap">
+         <div class="atw-header"><div class="atw-title">All Users</div><div class="atw-actions"><button class="tbl-btn" onclick="toast('Exporting user list...')">Export</button></div></div>
+         <table class="tbl">
+           <thead><tr><th>Name</th><th>Role</th><th>Nafath</th><th>Transactions</th><th>Joined</th><th>Status</th><th>Action</th></tr></thead>
+           <tbody>
+             <tr><td>Mohammed Al-Harbi</td><td><span class="pill pill-blue">Buyer</span></td><td><span class="pill pill-green">Verified</span></td><td>4</td><td>Jan 2025</td><td><span class="pill pill-green">Active</span></td><td><button class="tbl-btn" onclick="toast('Viewing user profile')">View</button></td></tr>
+             <tr><td>Fatima Al-Otaibi</td><td><span class="pill pill-gold">Seller</span></td><td><span class="pill pill-green">Verified</span></td><td>2</td><td>Feb 2025</td><td><span class="pill pill-green">Active</span></td><td><button class="tbl-btn" onclick="toast('Viewing user profile')">View</button></td></tr>
+             <tr><td>Khalid Al-Mutairi</td><td><span class="pill pill-gold">Seller</span></td><td><span class="pill pill-gold">Pending</span></td><td>0</td><td>May 2025</td><td><span class="pill pill-gold">Unverified</span></td><td><button class="tbl-btn danger" onclick="toast('Suspending user...')">Suspend</button></td></tr>
+             <tr><td>Sara Al-Zahrani</td><td><span class="pill pill-blue">Buyer</span></td><td><span class="pill pill-green">Verified</span></td><td>7</td><td>Dec 2024</td><td><span class="pill pill-green">Active</span></td><td><button class="tbl-btn" onclick="toast('Viewing user profile')">View</button></td></tr>
+           </tbody>
+         </table>
+       </div>
+     </div>
+ 
+     <!-- BOOKINGS -->
+     <div id="panel-bookings" class="admin-panel">
+       <div style="font-family:var(--serif);font-size:28px;font-weight:500;margin-bottom:24px">All Bookings</div>
+       <div class="admin-table-wrap">
+         <div class="atw-header"><div class="atw-title">Booking Registry</div><div class="atw-actions"><button class="tbl-btn" onclick="toast('Downloading registry...')">Download</button></div></div>
+         <table class="tbl">
+           <thead><tr><th>ID</th><th>Hotel</th><th>City</th><th>Dates</th><th>Resale Price</th><th>Stage</th></tr></thead>
+           <tbody>
+             <tr><td style="font-family:monospace;color:var(--gold)">#BK-001</td><td>Ritz-Carlton Riyadh</td><td>Riyadh</td><td>May 12–15</td><td>SAR 1,900/n</td><td><span class="pill pill-green">Live</span></td></tr>
+             <tr><td style="font-family:monospace;color:var(--gold)">#BK-002</td><td>Four Seasons Riyadh</td><td>Riyadh</td><td>May 18–20</td><td>SAR 2,400/n</td><td><span class="pill pill-green">Live</span></td></tr>
+             <tr><td style="font-family:monospace;color:var(--gold)">#BK-003</td><td>Rosewood Jeddah</td><td>Jeddah</td><td>May 22–26</td><td>SAR 1,250/n</td><td><span class="pill pill-green">Live</span></td></tr>
+             <tr><td style="font-family:monospace;color:var(--gold)">#BK-004</td><td>Banyan Tree AlUla</td><td>AlUla</td><td>Jun 2–5</td><td>SAR 3,200/n</td><td><span class="pill pill-gold">Pending</span></td></tr>
+             <tr><td style="font-family:monospace;color:var(--gold)">#BK-005</td><td>SINDALAH NEOM</td><td>NEOM</td><td>Jun 10–15</td><td>SAR 4,100/n</td><td><span class="pill pill-blue">Verifying</span></td></tr>
+           </tbody>
+         </table>
+       </div>
+     </div>
+ 
+   </div>
+ </div>
+</div>
+ 
+<!-- ═══════════════════════════════════
+    PURCHASE MODAL
+═══════════════════════════════════ -->
+<div id="purchase-modal" class="modal-overlay">
+ <div class="modal">
+   <div class="modal-top">
+     <div class="modal-title">Secure Checkout</div>
+     <div class="modal-close" onclick="closePurchase()">✕</div>
+   </div>
+   <div class="modal-body" id="modal-body-content">
+     <!-- Injected by JS -->
+   </div>
+ </div>
+</div>
+ 
+<!-- TOAST -->
+<div id="toast" class="toast"></div>
+ 
+<script>
+// ── STATE ──
+let currentUser = null;
+let selectedRole = 'buyer';
+let activeAuthTab = 'login';
+ 
+// ── USERS DB (in-memory) ──
+const usersDB = [
+ { email: 'buyer@demo.com', pass: '123', name: 'Mohammed Al-Harbi', role: 'buyer', initials: 'MA' },
+ { email: 'seller@demo.com', pass: '123', name: 'Fatima Al-Otaibi', role: 'seller', initials: 'FA' },
+ { email: 'admin@demo.com', pass: '123', name: 'YEMDEEK Admin', role: 'admin', initials: 'YM' },
+];
+ 
+// ── TRANSACTIONS DB (in-memory) ──
+const transactionsDB = [];
+ 
+// ── AUTH ──
+function openAuth() {
+ if (currentUser) {
+   currentUser = null;
+   updateNavUser(null);
+   toast('Signed out successfully');
+   return;
+ }
+ document.getElementById('auth-modal').classList.add('open');
+}
+ 
+function closeAuth() {
+ document.getElementById('auth-modal').classList.remove('open');
+}
+ 
+document.getElementById('auth-modal').addEventListener('click', function(e) {
+ if (e.target === this) closeAuth();
+});
+ 
+function switchAuthTab(tab) {
+ activeAuthTab = tab;
+ document.getElementById('auth-login').style.display = tab === 'login' ? 'block' : 'none';
+ document.getElementById('auth-register').style.display = tab === 'register' ? 'block' : 'none';
+ document.getElementById('tab-login').classList.toggle('active', tab === 'login');
+ document.getElementById('tab-register').classList.toggle('active', tab === 'register');
+}
+ 
+function selectRole(role) {
+ selectedRole = role;
+ document.getElementById('role-buyer').classList.toggle('active', role === 'buyer');
+ document.getElementById('role-seller').classList.toggle('active', role === 'seller');
+}
+ 
+function doLogin() {
+ const email = document.getElementById('login-email').value;
+ const pass = document.getElementById('login-pass').value;
+ const user = usersDB.find(u => u.email === email && u.pass === pass);
+ if (user) {
+   loginUser(user);
+ } else {
+   toast('❌ Invalid credentials. Try demo buttons below.');
+ }
+}
+ 
+function doRegister() {
+ const fakeUser = { name: 'New User', role: selectedRole, initials: 'NU' };
+ loginUser(fakeUser);
+ toast('✅ Account created! Nafath verification sent.');
+}
+ 
+function demoLogin(role) {
+ const map = { buyer: usersDB[0], seller: usersDB[1], admin: usersDB[2] };
+ loginUser(map[role]);
+}
+ 
+function loginUser(user) {
+ currentUser = user;
+ updateNavUser(user);
+ closeAuth();
+ toast(`Welcome back, ${user.name.split(' ')[0]}! ✨`);
+ if (user.role === 'admin') {
+   switchView('admin', document.querySelectorAll('.nav-tab')[2]);
+ } else if (user.role === 'seller') {
+   switchView('seller', document.querySelectorAll('.nav-tab')[1]);
+ } else {
+   switchView('marketplace', document.querySelectorAll('.nav-tab')[0]);
+ }
+}
+ 
+function updateNavUser(user) {
+ const btn = document.getElementById('nav-user-btn');
+ const av = document.getElementById('nav-avatar');
+ const name = document.getElementById('nav-name');
+ if (user) {
+   av.textContent = user.initials || user.name[0];
+   name.textContent = user.name.split(' ')[0];
+ } else {
+   av.textContent = '?';
+   name.textContent = 'Sign In';
+ }
+}
+ 
+// ── VIEWS ──
+function switchView(view, el) {
+ document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+ document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+ document.getElementById('view-' + view).classList.add('active');
+ if (el) el.classList.add('active');
+}
+ 
+function goHome() {
+ const tabs = document.querySelectorAll('.nav-tab');
+ switchView('marketplace', tabs[0]);
+}
+ 
+// ── ADMIN PANELS ──
+function showPanel(p, el) {
+ document.querySelectorAll('.admin-panel').forEach(x => x.classList.remove('active'));
+ document.querySelectorAll('.sidebar-item').forEach(x => x.classList.remove('active'));
+ document.getElementById('panel-' + p).classList.add('active');
+ if (el) el.classList.add('active');
+}
+ 
+// ── FILTER CHIPS ──
+function toggleFilter(el) {
+ document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+ el.classList.add('active');
+}
+ 
+document.querySelectorAll('.filter-chip').forEach(c => {
+ c.addEventListener('click', function() {
+   document.querySelectorAll('.filter-chip').forEach(x => x.classList.remove('active'));
+   this.classList.add('active');
+ });
+});
+ 
+// ── PRICING GUIDE ──
+function updatePricingGuide(val) {
+ const v = parseInt(val) || 0;
+ const commission = Math.round(v * 0.07);
+ const payout = v - commission;
+ document.getElementById('payout-estimate').innerHTML =
+   `You receive: <strong style="color:var(--gold)">SAR ${payout.toLocaleString()}/night</strong>`;
+}
+ 
+// ── LISTING SUBMIT ──
+function submitListing() {
+ toast('✅ Listing submitted for verification. We\'ll contact you within 4 hours.');
+}
+ 
+// ── PURCHASE MODAL ──
+let currentBooking = {};
+ 
+function openPurchase(hotel, icon, imgClass, nights, original, resale, dates) {
+ currentBooking = { hotel, icon, imgClass, nights, original, resale, dates };
+ const subtotal = nights * resale;
+ const protection = Math.round(subtotal * 0.03);
+ const total = subtotal + protection;
+ const savings = (original - resale) * nights;
+ 
+ document.getElementById('modal-body-content').innerHTML = `
+   <div class="booking-summary">
+     <div class="bs-icon">${icon}</div>
+     <div>
+       <div class="bs-hotel">${hotel}</div>
+       <div class="bs-dates">${dates} · ${nights} nights · Verified Listing</div>
+     </div>
+   </div>
+ 
+   <div class="payment-section">
+     <div class="pay-title">Payment Details</div>
+     <div class="card-input-group">
+       <div class="card-input-row">
+         <span class="card-icon">💳</span>
+         <input type="text" placeholder="Card number" maxlength="19" oninput="formatCard(this)">
+       </div>
+       <div class="card-input-row">
+         <span class="card-icon">👤</span>
+         <input type="text" placeholder="Cardholder name">
+       </div>
+       <div class="card-row-split card-input-group" style="margin:0;border:none;border-radius:0">
+         <div class="card-input-row">
+           <span class="card-icon">📅</span>
+           <input type="text" placeholder="MM / YY" maxlength="7">
+         </div>
+         <div class="card-input-row">
+           <span class="card-icon">🔒</span>
+           <input type="text" placeholder="CVV" maxlength="4">
+         </div>
+       </div>
+     </div>
+   </div>
+ 
+   <div class="price-breakdown">
+     <div class="pb-row original">
+       <span>Original price (${nights} nights × SAR ${original.toLocaleString()})</span>
+       <span class="val">SAR ${(original*nights).toLocaleString()}</span>
+     </div>
+     <div class="pb-row">
+       <span>Resale price (${nights} nights × SAR ${resale.toLocaleString()})</span>
+       <span class="val">SAR ${subtotal.toLocaleString()}</span>
+     </div>
+     <div class="pb-row savings">
+       <span>Your savings</span>
+       <span class="val">− SAR ${savings.toLocaleString()}</span>
+     </div>
+     <div class="pb-row">
+       <span>Buyer protection fee (3%)</span>
+       <span class="val">SAR ${protection.toLocaleString()}</span>
+     </div>
+     <div class="pb-row total">
+       <span>Total Due</span>
+       <span class="val">SAR ${total.toLocaleString()}</span>
+     </div>
+   </div>
+ 
+   <div class="protection-notice">
+     <div class="pn-icon">🛡️</div>
+     <div>Your payment is held in <strong>protected escrow</strong> until you successfully check in. If there are any issues, YEMDEEK's dispute team will resolve and refund.</div>
+   </div>
+ 
+   <button class="pay-btn" onclick="completePurchase(${total})">
+     <span>🔒</span> Pay SAR ${total.toLocaleString()} Securely
+   </button>
+ `;
+ 
+ document.getElementById('purchase-modal').classList.add('open');
+}
+ 
+function completePurchase(total) {
+ const ref = 'YM-' + Math.floor(1000 + Math.random()*9000);
+ transactionsDB.push({ ref, hotel: currentBooking.hotel, total, date: new Date() });
+ 
+ document.getElementById('modal-body-content').innerHTML = `
+   <div class="success-screen show">
+     <div class="success-ring">✓</div>
+     <div class="success-title">Booking Confirmed!</div>
+     <div class="success-sub">
+       Your payment is securely held in escrow.<br>
+       The hotel confirmation will arrive within 2 hours.<br>
+       If anything goes wrong, YEMDEEK protects you fully.
+     </div>
+     <div class="booking-ref">#${ref}</div>
+     <button class="submit-btn" onclick="closePurchase()">Done</button>
+   </div>
+ `;
+ toast(`🎉 Booking #${ref} confirmed!`);
+}
+ 
+function closePurchase() {
+ document.getElementById('purchase-modal').classList.remove('open');
+}
+ 
+document.getElementById('purchase-modal').addEventListener('click', function(e) {
+ if (e.target === this) closePurchase();
+});
+ 
+function formatCard(el) {
+ let v = el.value.replace(/\D/g, '').substring(0,16);
+ el.value = v.replace(/(.{4})/g,'$1 ').trim();
+}
+ 
+// ── TOAST ──
+function toast(msg) {
+ const t = document.getElementById('toast');
+ t.textContent = msg;
+ t.classList.add('show');
+ clearTimeout(t._t);
+ t._t = setTimeout(() => t.classList.remove('show'), 3200);
+}
+</script>
+</body>
+</html>
